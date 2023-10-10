@@ -1,4 +1,4 @@
-const form = document.getElementById('form');
+const form = document.getElementById('formulario');
 const nomes = [];
 const sobrenomes = [];
 const numeros = [];
@@ -10,18 +10,13 @@ form.addEventListener('submit', function(e) {
 
     adicionaLinha();
     atualizaTabela();
+    adicionaTabela();
 })
 
 function adicionaLinha() {
     const inputNome = document.getElementById('nome-contato');
     const inputSobrenome = document.getElementById('sobrenome-contato');
     const inputNumero = document.getElementById('numero-telefone');
-
-    if (numeros.includes(inputNumero.value)) {
-        alert(`O número: ${inputNumero.value} já está atribuído a um outro contato`);
-    } else {
-        numeros.push(inputNumero.value);
-        nomes.push(parseFloat(inputNome.value));
 
     let linha = '<tr>';
     linha += `<td>${inputNome.value}</td>`;
@@ -30,7 +25,6 @@ function adicionaLinha() {
     linha += '</tr>';
 
     linhas += linha;
-    }
 
 inputNome.value = '';
 inputSobrenome.value = '';
@@ -40,4 +34,8 @@ inputNumero.value = '';
 function atualizaTabela() {
     const tabela = document.querySelector('tbody');
     tabela.innerHTML = linhas;
+}
+
+function adicionaTabela() {
+    const numeros = adicionaTabela();
 }
